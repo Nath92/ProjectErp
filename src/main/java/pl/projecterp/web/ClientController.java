@@ -50,6 +50,11 @@ public class ClientController {
 	public Collection<String> clientAttributesPl() {
 		return clientDao.clientAttributesPl();
 	}
+	
+	@ModelAttribute("clientAttributesEn")
+	public Collection<String> clientAttributesEn() {
+		return clientDao.clientAttributesEn();
+	}
 
 	
 }

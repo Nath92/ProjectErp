@@ -12,5 +12,10 @@
 		<button><a href="/ProjectErp/client" style="text-decoration: none">Lista clientow</a></button>
 		<button><a href="/ProjectErp/client/add" style="text-decoration: none">Dodaj clienta</a></button>
 	</div>
+		<h2>Order</h2>
+	<div>
+		<button><a href="/ProjectErp/order" style="text-decoration: none">Lista zamowien</a></button>
+		<button><a href="/ProjectErp/order/add" style="text-decoration: none">Dodaj zamowienie</a></button>
+	</div>
 </body>
 </html>

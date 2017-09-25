@@ -16,7 +16,6 @@ import pl.projecterp.entity.Order;
 import pl.projecterp.repository.OrderRepository;
 
 @Controller
-@RequestMapping("/order")
 public class OrderController {
 
 	private final OrderRepository orderRepository;
@@ -26,31 +25,31 @@ public class OrderController {
 		this.orderRepository = orderRepository;
 	}
 
-	@GetMapping({"/add", "/add/{id}"})
+	@GetMapping({"order/add", "order/add/{id}"})
 	public String showForm(@PathVariable(required = false) Long id, Model model) {
 		model.addAttribute("order", (id != null) ? orderRepository.findById(id) : new Order());
 		return "order/add";
 	}
 	
-	@PostMapping({ "/add", "/add/{id}"})
+	@PostMapping({ "order/add", "order/add/{id}"})
 	public String processForm(@Valid @ModelAttribute Order order, BindingResult result) {
 		if (result.hasErrors()) {
 			return "order/add";
 		}
 		orderRepository.save(order);
-		return "redirect:/order/search";
+		return "redirect:/order/order";
 	}
 	
-	@GetMapping("/search")
-	public String showAllProducts(Model model) {
+	@GetMapping("/order")
+	public String showAllOrders(Model model) {
 		model.addAttribute("orders", orderRepository.findAll());
-		return "product/order";
+		return "order/order";
 	}
 	
-	@RequestMapping("/delete/{id}")
+	@RequestMapping("order/delete/{id}")
 	public String delete(@PathVariable Long id) {
 		orderRepository.delete(orderRepository.findById(id));
-		return "redirect:/order/search";
+		return "redirect:/order/order";
 	}
 	
 }

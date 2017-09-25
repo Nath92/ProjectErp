@@ -29,11 +29,12 @@
 3.Product
   - id
   - name
+  - standard
   - availability
   - weight
   - currentPrice
 
-4.Orders
+4.Order
   - id
   - createdDate
   - shippingDate

@@ -9,7 +9,7 @@
 <title>Add</title>
 </head>
 <body>
-<h2>Dodaj klienta</h2>
+	<h2>Dodaj klienta</h2>
 	<form:form method="post" modelAttribute="client">
 		Nazwa:<form:input path="name" />
 		NIP:<form:input path="nip" />
@@ -22,6 +22,6 @@
 		E-mail:<form:input path="email" />
 		Tag<form:input path="tag" />
 		<input type="submit" value="Dodaj">
-</form:form>
+	</form:form>
 </body>
 </html>

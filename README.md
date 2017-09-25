@@ -1,6 +1,6 @@
 # ProjectErp
 
-## Encje
+## Entities
 1.Client
   - id
   - name
@@ -10,7 +10,7 @@
   - description
   - active
   ---
-  Relacje
+  Relations
   - address (OneToMany)
   - List<'Orders'> (OneToMany)
 
@@ -23,7 +23,7 @@
   - houseNumber
   - localNumber
   ---
-  Relacje
+  Relations
   - client (ManyToOne)
 
 3.Product
@@ -41,7 +41,7 @@
   - paymentDate
   - totalPrice
   ---
-  Relacje
+  Relations
   - clientId (ManyToOne)
   - List<'OrderItem'> (OneToMany)
 
@@ -53,17 +53,18 @@
   - price
   - productId
   ---
+  Relations
   - orderId (ManyToOne)
 
-## Panele
-1. Do tworzenia encji
-2. Wyszukiwania, modyfikacji, usuwania (tabela z asc|dsc na kolumnach)
-3. Panel tworzenia zamówień (sprzedaży)
+## ToDo
+1. Links to add entities
+2. Search, modify, delete (tabel with asc|dsc on columns)
+3. Panel for creating orders
 
-## Byłoby miło
-1. Panel do logowania użytkownika
-2. Dodanie do order pozycji kto wystawił zamówienie
-3. Wyliczanie ceny produktu na podstawie kursów walut
-4. Koszyk dla sesji
-5. Generowanie histori zamówień klientów
-6. Tworzenie zestawień sprzedaży w skali (miesięcznej/kwartalnej/rocznej/tryb ręczny)
+## Would be nice to complete
+1. Login panel (session)
+2. Adding log info to orders (which user placed order)
+3. Getting item price based on gold value
+4. Session basket
+5. Generating history of orders for specific client
+6. Creating charts with sails for (month/quarter/year/specific period)

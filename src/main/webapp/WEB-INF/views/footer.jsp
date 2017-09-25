@@ -1,7 +1,7 @@
 <!-- footer content -->
         <footer>
           <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+            Project ERP - based on Gentelella template
           </div>
           <div class="clearfix"></div>
         </footer>

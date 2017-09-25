@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -41,7 +42,7 @@ public class Client {
 	
 	private boolean active;
 	
-	@OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	List<Address> addresses = new ArrayList<>();
 
 	public Client() {};
@@ -123,7 +124,7 @@ public class Client {
 
 	@Override
 	public String toString() {
-		return "Client [id=" + id + ", name=" + name + ", nip=" + nip + ", phone=" + phone + ", email=" + email
+		return "name=" + name + ", nip=" + nip + ", phone=" + phone + ", email=" + email
 				+ ", description=" + description;
 	}
 }

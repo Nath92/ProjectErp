@@ -30,6 +30,7 @@ public class Address {
 	
 	@NotBlank
 	private String housenumber;
+	
 	private Integer localnumber;
 	
 	@ManyToOne
@@ -116,8 +117,8 @@ public class Address {
 
 	@Override
 	public String toString() {
-		return "Address [id=" + id + ", postalcode=" + postalcode + ", province=" + province + ", city=" + city
-				+ ", street=" + street + ", housenumber=" + housenumber + ", localnumber=" + localnumber;
+		return "<tr><td>" + postalcode + "</td><td>" + province + "</td><td>" + city
+				+ "</td><td>" + street + "</td><td>" + housenumber + "</td><td>" + localnumber + "</td></tr>";
 	}
 	
 }

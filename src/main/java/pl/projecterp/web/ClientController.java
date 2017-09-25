@@ -1,7 +1,10 @@
 package pl.projecterp.web;
 
-import java.util.Collection;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,13 +16,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import pl.projecterp.entity.Address;
 import pl.projecterp.entity.Client;
+import pl.projecterp.repository.AddressRepository;
 import pl.projecterp.repository.ClientRepository;
 
 @Controller
-@RequestMapping("/client")
 public class ClientController {
 
 	
@@ -30,41 +34,42 @@ public class ClientController {
 		this.clientRepository = clientRepository;
 	}
 	
-	@GetMapping({"/add", "/add/{id}"})
+	@GetMapping({"/client/add", "/client/add/{id}"})
 	public String showForm(@PathVariable(required = false) Long id, Model model) {
-		
-		model.addAttribute("client", (id != null) ? clientRepository.findById(id) : new Client());
+		Client client = (id != null) ? clientRepository.findById(id) : new Client();
+		model.addAttribute("client", client);
 		return "client/add";
 	}
 	
-	@PostMapping({ "/add", "/add/{id}"})
-	public String processForm(@Valid @ModelAttribute Client client, BindingResult result) {
+	@PostMapping({ "/client/add", "/client/add/{id}"})
+	public String processForm(@Valid @ModelAttribute Client client, BindingResult result, HttpSession sess) {
 		if (result.hasErrors()) {
 			return "client/add";
 		}
-		
+		client.setActive(true);
+		sess.setAttribute("client", client);
 		clientRepository.save(client);
-		return "redirect:/client/search";
+		return "redirect:/address/add";
 	}
 	
-	@GetMapping("/search")
+	@GetMapping("/client")
 	public String showAllClients(Model model) {
-		model.addAttribute("clients", clientRepository.findAll());
-		return "client/search";
+		model.addAttribute("clients", clientRepository.findAllActive());
+		return "client/client";
 	}
 	
-	@RequestMapping("/delete/{id}")
+	@RequestMapping("/client/delete/{id}")
 	public String delete(@PathVariable Long id) {
 		clientRepository.delete(clientRepository.findById(id));
-		return "redirect:/client/search";
+//		clientRepository.triggerActive(id);
+		return "redirect:/client";
 	}
 	
-	//jakbysmy chcieli nie wyswietlac wszystkich danych w tabelce i miec strone 'details'
-//	@RequestMapping("/get/{id}")
-//	public String get(@PathVariable Long id, Model model) {
-//		model.addAttribute("client", clientRepository.findById(id));
-//		return "client/details";
-//	}
+	@RequestMapping("/client/get/{id}")
+	public String get(@PathVariable Long id, Model model) {
+		model.addAttribute("client", clientRepository.findById(id));
+		return "client/details";
+	}
 	
 
 	

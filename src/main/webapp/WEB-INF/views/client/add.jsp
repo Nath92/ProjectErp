@@ -12,16 +12,26 @@
 	<h2>Dodaj klienta</h2>
 	<form:form method="post" modelAttribute="client">
 		Nazwa:<form:input path="name" />
+		<form:errors path="name" cssClass="error" />
+		<br>
+		
 		NIP:<form:input path="nip" />
-		Kod pocztowy:<form:input path="postalcode" />
-		Miasto<form:input path="city" />
-		Ulica:<form:input path="street" />
-		Numer domu:<form:input path="housenumber" />
-		Numer mieszkania:<form:input path="localnumber" />
-		Numer telefonu:<form:input path="phonenumber" />
+		<form:errors path="nip" cssClass="error" />
+		<br>
+		
+		Numer telefonu:<form:input path="phone" />
+		<form:errors path="phone" cssClass="error" />
+		<br>
+		
 		E-mail:<form:input path="email" />
-		Tag<form:input path="tag" />
-		<input type="submit" value="Dodaj">
+		<form:errors path="email" cssClass="error" />
+		<br>
+		
+		Opis:<form:textarea path="description" />
+		<form:errors path="description" cssClass="error" />
+		<br>
+
+		<input type="submit" value="Dodaj adres">
 	</form:form>
 </body>
 </html>

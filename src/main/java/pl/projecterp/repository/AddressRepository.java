@@ -10,5 +10,5 @@ import pl.projecterp.entity.Client;
 public interface AddressRepository extends JpaRepository<Address, Long>{
 
 	List<Address> findByClient(Client client);
-//	Address findById(Long id);
+	Address findById(Long id);
 }

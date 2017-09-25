@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Hello.jsp</title>
+<title>Menu</title>
 </head>
 <body>
-<h2>Hello</h2>
+	<h2>Client Panel</h2>
+	<div>
+		<button><a href="/ProjectErp/client" style="text-decoration: none">Lista clientow</a></button>
+		<button><a href="/ProjectErp/client/add" style="text-decoration: none">Dodaj clienta</a></button>
+	</div>
 </body>
 </html>

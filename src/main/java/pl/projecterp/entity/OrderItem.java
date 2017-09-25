@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Min;
@@ -36,6 +37,25 @@ public class OrderItem {
 
 	@NotNull
 	private Long productId;
+	
+	@ManyToOne
+	private Order order;
+	
+	
+	
+	public OrderItem() {
+	}
+
+	public OrderItem(Long id, String name, Integer quantity, Double weight, Double price, Long productId, Order order) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.quantity = quantity;
+		this.weight = weight;
+		this.price = price;
+		this.productId = productId;
+		this.order = order;
+	}
 
 	public Long getId() {
 		return id;
@@ -84,7 +104,15 @@ public class OrderItem {
 	public void setProductId(Long productId) {
 		this.productId = productId;
 	}
-	
+
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}
+
 	
 	
 }

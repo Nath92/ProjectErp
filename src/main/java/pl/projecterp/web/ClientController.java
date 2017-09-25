@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import pl.projecterp.dao.ClientDao;
 import pl.projecterp.entity.Client;
 import pl.projecterp.repository.ClientRepository;
 
@@ -23,8 +22,6 @@ import pl.projecterp.repository.ClientRepository;
 @RequestMapping("/client")
 public class ClientController {
 
-	@Autowired
-	private ClientDao clientDao;	
 	
 	private final ClientRepository clientRepository;
 	
@@ -52,7 +49,6 @@ public class ClientController {
 	
 	@GetMapping("/search")
 	public String showAllClients(Model model) {
-		model.addAttribute("clientAttributePl", clientDao.clientAttributesPl());
 		model.addAttribute("clients", clientRepository.findAll());
 		return "client/search";
 	}
@@ -70,15 +66,6 @@ public class ClientController {
 //		return "client/details";
 //	}
 	
-	@ModelAttribute("clientAttributesPl")
-	public Collection<String> clientAttributesPl() {
-		return clientDao.clientAttributesPl();
-	}
-	
-	@ModelAttribute("clientAttributesEn")
-	public Collection<String> clientAttributesEn() {
-		return clientDao.clientAttributesEn();
-	}
 
 	
 }

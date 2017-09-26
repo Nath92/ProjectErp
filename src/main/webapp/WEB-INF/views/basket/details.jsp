@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>SzczegÃ³Åy zamÃ³wienia</title>
+<title>Szczegóły zamówienia</title>
 </head>
 <body>
 	<ul>

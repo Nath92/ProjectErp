@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Orders</title>
+<title>Basket</title>
 </head>
 <body>
 	<table>
@@ -24,18 +24,18 @@
 				<td>${basket.paymentDate}</td>
 				<td>${basket.totalPrice}</td>
 				 <td><button>
-						<a href="/ProjectErp/order/get/${basket.id}"
+						<a href="/ProjectErp/basket/get/${basket.id}"
 							style="text-decoration: none">Szczegóły</a>
 					</button></td>
 				<td><button>
-						<a href="/ProjectErp/order/delete/${basket.id}"
-							style="text-decoration: none">Usuń</a>
+						<a href="/ProjectErp/basket/delete/${basket.id}"
+							style="text-decoration: none">Usuń</a>
 					</button></td> 
-				<td><button>
-				<a href="/ProjectErp/">Wróć</a>
-				</button></td> 
 			</tr>
 		</c:forEach>
 	</table>
+				<button>
+				<a href="/ProjectErp/">Wróć</a>
+				</button>
 </body>
 </html>

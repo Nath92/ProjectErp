@@ -14,8 +14,8 @@
 	</div>
 		<h2>Basket</h2>
 	<div>
-		<button><a href="/ProjectErp/order" style="text-decoration: none">Lista zamowien</a></button>
-		<button><a href="/ProjectErp/order/add" style="text-decoration: none">Dodaj zamowienie</a></button>
+		<button><a href="/ProjectErp/basket" style="text-decoration: none">Lista zamowien</a></button>
+		<button><a href="/ProjectErp/basket/add" style="text-decoration: none">Dodaj zamowienie</a></button>
 	</div>
 </body>
 </html>

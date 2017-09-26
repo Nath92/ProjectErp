@@ -37,7 +37,7 @@
     <script src="<c:url value="/resources/vendors/pdfmake/build/vfs_fonts.js" />" ></script>
 
     <!-- Custom Theme Scripts -->
-    <script src="<c:url value="/resources/build/js/custom.min.js" />" ></script>
+    <script src="<c:url value="/resources/build/js/custom.js" />" ></script>
 <!-- Google Analytics -->
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

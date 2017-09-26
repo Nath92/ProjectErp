@@ -32,10 +32,8 @@
 		$(function() {
 			$(".datepicker").datepicker({ minDate: 0 });
 			var today = $("#today");
-			today.datepicker();
-			today.datepicker("setDate", new Date());
-			today.attr("value", today.datepicker("getDate"));
-			today.datepicker( "option", "disabled", true );
+			
+			today.datepicker({minDate:0,maxDate:0}).attr('readonly','readonly');
 		});
 	</script>
 </body>

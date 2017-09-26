@@ -34,6 +34,7 @@ public class Basket {
 	private String paymentDate;
 
 	@NotNull
+	@DecimalMin("0.01")
 	private Double totalPrice;
 	
 //	@ManyToOne

@@ -36,7 +36,7 @@ public class BasketController {
 		if (result.hasErrors()) {
 			return "basket/add";
 		}
-		
+		System.out.println(basket.getCreatedDate());
 		basketRepository.save(basket);
 		return "redirect:/basket";
 	}
@@ -50,7 +50,7 @@ public class BasketController {
 	@RequestMapping("/basket/delete/{id}")
 	public String delete(@PathVariable Long id) {
 		basketRepository.delete(basketRepository.findById(id));
-		return "redirect:/basket/basket";
+		return "redirect:/basket";
 	}
 	
 	@RequestMapping("/basket/get/{id}")

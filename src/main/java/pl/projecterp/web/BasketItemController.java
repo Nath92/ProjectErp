@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import pl.projecterp.entity.BasketItem;
 import pl.projecterp.entity.Product;
@@ -44,8 +45,21 @@ public class BasketItemController {
 			return "basketItem/add";
 		}
 		basketItemRepository.save(basketItem);
+		return "redirect:/basketItem";
+	}
+	
+	@RequestMapping("/basketItem")
+	public String showAllOrders(Model model) {
+		model.addAttribute("basketItems", basketItemRepository.findAll());
 		return "basketItem/basketItem";
 	}
+	
+	@RequestMapping("/basketItem/delete/{id}")
+	public String delete(@PathVariable Long id) {
+		basketItemRepository.delete(basketItemRepository.findById(id));
+		return "redirect:/basketItem";
+	}
+	
 	
 	@ModelAttribute("products")
 	public Collection<Product> products(){

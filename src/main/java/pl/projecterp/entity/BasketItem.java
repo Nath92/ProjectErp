@@ -41,7 +41,7 @@ public class BasketItem {
 	
 	@ManyToOne
 	private Basket basket;
-//		
+	
 	public BasketItem() {
 	}
 

@@ -12,7 +12,7 @@
   ---
   Relations
   - address (OneToMany)
-  - List<'Orders'> (OneToMany)
+  - List<'Baskets'> (OneToMany)
 
 2.Address
   - id
@@ -34,7 +34,7 @@
   - weight
   - currentPrice
 
-4.Order
+4.Basket
   - id
   - createdDate
   - shippingDate
@@ -43,9 +43,9 @@
   ---
   Relations
   - clientId (ManyToOne)
-  - List<'OrderItem'> (OneToMany)
+  - List<'BasketItem'> (OneToMany)
 
-5.OrderItem
+5.BasketItem
   - id
   - name
   - quantity
@@ -54,7 +54,7 @@
   - productId
   ---
   Relations
-  - orderId (ManyToOne)
+  - basketId (ManyToOne)
 
 ## ToDo
 1. Links to add entities

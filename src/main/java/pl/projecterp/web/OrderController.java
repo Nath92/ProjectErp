@@ -42,7 +42,7 @@ public class OrderController {
 	
 	@RequestMapping("/order")
 	public String showAllOrders(Model model) {
-		model.addAttribute("orders", orderRepository.findAll());
+//		model.addAttribute("orders", orderRepository.findAll());
 		return "order/order";
 	}
 	

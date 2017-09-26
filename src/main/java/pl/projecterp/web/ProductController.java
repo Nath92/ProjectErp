@@ -16,7 +16,6 @@ import pl.projecterp.entity.Product;
 import pl.projecterp.repository.ProductRepository;
 
 @Controller
-@RequestMapping("/product")
 public class ProductController {
 
 	private final ProductRepository productRepository;
@@ -26,31 +25,31 @@ public class ProductController {
 		this.productRepository = productRepository;
 	}
 	
-	@GetMapping({"/add", "/add/{id}"})
+	@GetMapping({"/product/add", "/product/add/{id}"})
 	public String showForm(@PathVariable(required = false) Long id, Model model) {
 		model.addAttribute("product", (id != null) ? productRepository.findById(id) : new Product());
 		return "product/add";
 	}
 	
-	@PostMapping({ "/add", "/add/{id}"})
+	@PostMapping({ "/product/add", "/product/add/{id}"})
 	public String processForm(@Valid @ModelAttribute Product product, BindingResult result) {
 		if (result.hasErrors()) {
 			return "product/add";
 		}
 		productRepository.save(product);
-		return "redirect:/product/search";
+		return "redirect:/product";
 	}
 	
-	@GetMapping("/search")
+	@RequestMapping("/product")
 	public String showAllProducts(Model model) {
 		model.addAttribute("products", productRepository.findAll());
-		return "product/search";
+		return "product/product";
 	}
 	
-	@RequestMapping("/delete/{id}")
+	@RequestMapping("/product/delete/{id}")
 	public String delete(@PathVariable Long id) {
 		productRepository.delete(productRepository.findById(id));
-		return "redirect:/product/search";
+		return "redirect:/product";
 	}
 	
 }

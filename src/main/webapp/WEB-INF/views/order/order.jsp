@@ -23,14 +23,17 @@
 				<td>${order.shippingDate}</td>
 				<td>${order.paymentDate}</td>
 				<td>${order.totalPrice}</td>
-				<%-- <td><button>
-						<a href="/ProjectErp/client/get/${client.id}"
+				 <td><button>
+						<a href="/ProjectErp/order/get/${order.id}"
 							style="text-decoration: none">Szczegóły</a>
 					</button></td>
 				<td><button>
-						<a href="/ProjectErp/order/delete/${client.id}"
+						<a href="/ProjectErp/order/delete/${order.id}"
 							style="text-decoration: none">Usuń</a>
-					</button></td> --%>
+					</button></td> 
+				<td><button>
+				<a href="/ProjectErp/">Wróć</a>
+				</button></td> 
 			</tr>
 		</c:forEach>
 	</table>

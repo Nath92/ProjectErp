@@ -40,9 +40,7 @@ public class OrderItem {
 	
 	@ManyToOne
 	private Order order;
-	
-	
-	
+		
 	public OrderItem() {
 	}
 

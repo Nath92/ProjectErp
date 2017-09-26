@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.DecimalMin;
@@ -17,7 +18,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
-@Table(name = "order")
+@Table(name="order")
 public class Order {
 
 	@Id
@@ -37,13 +38,16 @@ public class Order {
 	@DecimalMin("0.1")
 	private Double totalPrice;
 	
+//	@ManyToOne
+//	private Client client;
+	
 	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	List<OrderItem> orderItem = new ArrayList<>();
+	List<OrderItem> items = new ArrayList<>();
 	
 	public Order() {
 	}
 
-	public Order(Long id, String createdDate, String shippingDate, String paymentDate, Double totalPrice,
+	public Order(Long id, String createdDate, String shippingDate, String paymentDate, Double totalPrice, 
 			List<OrderItem> orderItem) {
 		super();
 		this.id = id;
@@ -51,7 +55,8 @@ public class Order {
 		this.shippingDate = shippingDate;
 		this.paymentDate = paymentDate;
 		this.totalPrice = totalPrice;
-		this.orderItem = orderItem;
+//		this.client = client;
+		this.items = orderItem;
 	}
 
 	public Long getId() {
@@ -94,13 +99,19 @@ public class Order {
 		this.totalPrice = totalPrice;
 	}
 
+//	public Client getClient() {
+//		return client;
+//	}
+//
+//	public void setClient(Client client) {
+//		this.client = client;
+//	}
+
 	public List<OrderItem> getOrderItem() {
-		return orderItem;
+		return items;
 	}
 
 	public void setOrderItem(List<OrderItem> orderItem) {
-		this.orderItem = orderItem;
+		this.items = orderItem;
 	}
-
-	
 }

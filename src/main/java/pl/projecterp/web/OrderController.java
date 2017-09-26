@@ -40,7 +40,7 @@ public class OrderController {
 		return "redirect:/order/order";
 	}
 	
-	@GetMapping("/order")
+	@RequestMapping("/order")
 	public String showAllOrders(Model model) {
 		model.addAttribute("orders", orderRepository.findAll());
 		return "order/order";

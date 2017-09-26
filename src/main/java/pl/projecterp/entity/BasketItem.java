@@ -14,8 +14,8 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
-@Table(name = "orderItem")
-public class OrderItem {
+@Table(name = "basketItem")
+public class BasketItem {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,12 +40,13 @@ public class OrderItem {
 	private Long productId;
 	
 	@ManyToOne
-	private Order order;
-		
-	public OrderItem() {
+	private Basket basket;
+//		
+	public BasketItem() {
 	}
 
-	public OrderItem(Long id, String name, Integer quantity, Double weight, Double price, Long productId, Order order) {
+	public BasketItem(Long id, String name, Integer quantity, Double weight, Double price, Long productId,
+			Basket basket) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -53,7 +54,7 @@ public class OrderItem {
 		this.weight = weight;
 		this.price = price;
 		this.productId = productId;
-		this.order = order;
+		this.basket = basket;
 	}
 
 	public Long getId() {
@@ -104,12 +105,12 @@ public class OrderItem {
 		this.productId = productId;
 	}
 
-	public Order getOrder() {
-		return order;
+	public Basket getBasket() {
+		return basket;
 	}
 
-	public void setOrder(Order order) {
-		this.order = order;
+	public void setOrder(Basket basket) {
+		this.basket = basket;
 	}
 
 	

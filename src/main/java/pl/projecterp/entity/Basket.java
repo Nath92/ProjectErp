@@ -18,14 +18,13 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
-@Table(name="order")
-public class Order {
+@Table(name="basket")
+public class Basket {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@NotBlank
 	private String createdDate;
 
 	@NotBlank
@@ -35,20 +34,18 @@ public class Order {
 	private String paymentDate;
 
 	@NotNull
-	@DecimalMin("0.1")
 	private Double totalPrice;
 	
 //	@ManyToOne
 //	private Client client;
 	
-	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	List<OrderItem> items = new ArrayList<>();
+	@OneToMany(mappedBy = "basket", cascade = CascadeType.ALL)
+	List<BasketItem> items = new ArrayList<>();
 	
-	public Order() {
+	public Basket() {
 	}
 
-	public Order(Long id, String createdDate, String shippingDate, String paymentDate, Double totalPrice, 
-			List<OrderItem> orderItem) {
+	public Basket(Long id, String createdDate, String shippingDate, String paymentDate, Double totalPrice, List<BasketItem> basketItem) {
 		super();
 		this.id = id;
 		this.createdDate = createdDate;
@@ -56,7 +53,7 @@ public class Order {
 		this.paymentDate = paymentDate;
 		this.totalPrice = totalPrice;
 //		this.client = client;
-		this.items = orderItem;
+		this.items = basketItem;
 	}
 
 	public Long getId() {
@@ -107,11 +104,11 @@ public class Order {
 //		this.client = client;
 //	}
 
-	public List<OrderItem> getOrderItem() {
+	public List<BasketItem> getOrderItem() {
 		return items;
 	}
 
-	public void setOrderItem(List<OrderItem> orderItem) {
-		this.items = orderItem;
+	public void setOrderItem(List<BasketItem> basketItem) {
+		this.items = basketItem;
 	}
 }

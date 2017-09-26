@@ -5,7 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Orders</title>
 </head>
 <body>
@@ -17,22 +17,22 @@
 			<th>Kwota</th>
 			<th colspan="2">Linki</th>
 		</tr>
-		<c:forEach items="${orders}" var="order" varStatus="count">
+		<c:forEach items="${baskets}" var="basket" varStatus="count">
 			<tr>
-				<td>${order.createdDate}</td>
-				<td>${order.shippingDate}</td>
-				<td>${order.paymentDate}</td>
-				<td>${order.totalPrice}</td>
+				<td>${basket.createdDate}</td>
+				<td>${basket.shippingDate}</td>
+				<td>${basket.paymentDate}</td>
+				<td>${basket.totalPrice}</td>
 				 <td><button>
-						<a href="/ProjectErp/order/get/${order.id}"
-							style="text-decoration: none">SzczegÃ³Åy</a>
+						<a href="/ProjectErp/order/get/${basket.id}"
+							style="text-decoration: none">Szczegóły</a>
 					</button></td>
 				<td><button>
-						<a href="/ProjectErp/order/delete/${order.id}"
-							style="text-decoration: none">UsuÅ</a>
+						<a href="/ProjectErp/order/delete/${basket.id}"
+							style="text-decoration: none">Usuń</a>
 					</button></td> 
 				<td><button>
-				<a href="/ProjectErp/">WrÃ³Ä</a>
+				<a href="/ProjectErp/">Wróć</a>
 				</button></td> 
 			</tr>
 		</c:forEach>

@@ -1,5 +1,8 @@
 package pl.projecterp.web;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -53,6 +56,28 @@ private final AddressRepository addressRepository;
 		address.setClient((Client) sess.getAttribute("client"));
 		addressRepository.save(address);
 		return "redirect:/client";
+	}
+	
+	@ModelAttribute("provinces")
+	public ArrayList<String> provinces(){
+		ArrayList<String> provinces = new ArrayList<>();
+		provinces.add("dolnośląskie");
+		provinces.add("kujawsko-pomorskie");
+		provinces.add("lubelskie");
+		provinces.add("lubuskie");
+		provinces.add("łódzkie");
+		provinces.add("małopolskie");
+		provinces.add("mazowieckie");
+		provinces.add("opolskie");
+		provinces.add("podkarpackie");
+		provinces.add("podlaskie");
+		provinces.add("pomorskie");
+		provinces.add("śląskie");
+		provinces.add("świętokrzyskie");
+		provinces.add("warmińsko-mazurskie");
+		provinces.add("wielkopolskie");
+		provinces.add("zachodniopomorskie");
+		return provinces;
 	}
 	
 	@RequestMapping("/delete{id}")

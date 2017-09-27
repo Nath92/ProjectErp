@@ -12,7 +12,7 @@ import javax.validation.Payload;
 @Target({ElementType.METHOD, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Postalcode {
-	String message() default "{}";
+	String message() default "{Postalcode.error}";
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};
 }

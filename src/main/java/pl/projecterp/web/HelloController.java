@@ -20,11 +20,11 @@ private final LoginRepository loginRepository;
 	
 	@RequestMapping("/")
 	public String hello(HttpSession sess) {
-		if (sess.isNew()) {
-			//login+register
-			return "login";
-		} else {
+//		if (sess.isNew()) {
+//			//login+register
+//			return "login";
+//		} else {
 			return "hello";
-		}
+//		}
 	}
 }

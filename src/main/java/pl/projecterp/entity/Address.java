@@ -9,6 +9,8 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import pl.coderslab.validator.Postalcode;
+
 @Entity
 @Table(name = "address")
 public class Address {
@@ -18,6 +20,7 @@ public class Address {
 	private Long id;
 	
 	@NotBlank
+	@Postalcode
 	private String postalcode;
 	
 	private String province;

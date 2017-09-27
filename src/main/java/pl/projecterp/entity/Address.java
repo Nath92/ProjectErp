@@ -23,6 +23,7 @@ public class Address {
 	@Postalcode
 	private String postalcode;
 	
+	@NotBlank
 	private String province;
 	
 	@NotBlank

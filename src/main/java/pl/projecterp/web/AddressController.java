@@ -58,26 +58,26 @@ private final AddressRepository addressRepository;
 		return "redirect:/client";
 	}
 	
-	@ModelAttribute("province")
-	public ArrayList<String> province(){
-		ArrayList<String> province = new ArrayList<>();
-		province.add("dolnośląskie");
-		province.add("kujawsko-pomorskie");
-		province.add("lubelskie");
-		province.add("lubuskie");
-		province.add("łódzkie");
-		province.add("małopolskie");
-		province.add("mazowieckie");
-		province.add("opolskie");
-		province.add("podkarpackie");
-		province.add("podlaskie");
-		province.add("pomorskie");
-		province.add("śląskie");
-		province.add("świętokrzyskie");
-		province.add("warmińsko-mazurskie");
-		province.add("wielkopolskie");
-		province.add("zachodniopomorskie");
-		return province;
+	@ModelAttribute("provinces")
+	public ArrayList<String> provinces(){
+		ArrayList<String> provinces = new ArrayList<>();
+		provinces.add("dolnośląskie");
+		provinces.add("kujawsko-pomorskie");
+		provinces.add("lubelskie");
+		provinces.add("lubuskie");
+		provinces.add("łódzkie");
+		provinces.add("małopolskie");
+		provinces.add("mazowieckie");
+		provinces.add("opolskie");
+		provinces.add("podkarpackie");
+		provinces.add("podlaskie");
+		provinces.add("pomorskie");
+		provinces.add("śląskie");
+		provinces.add("świętokrzyskie");
+		provinces.add("warmińsko-mazurskie");
+		provinces.add("wielkopolskie");
+		provinces.add("zachodniopomorskie");
+		return provinces;
 	}
 	
 	@RequestMapping("/delete{id}")

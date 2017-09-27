@@ -16,7 +16,7 @@
 		<form:errors path="postalcode" cssClass="error" />
 		<br>
 			
-			Województwo:<form:input path="province" />
+			Województwo:<form:select path="province" items="${province}"/>
 		<br>
 			
 			Miasto<form:input path="city" />

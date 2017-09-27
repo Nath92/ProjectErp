@@ -47,8 +47,8 @@
 									<th>Nr telefonu</th>
 									<th>Email</th>
 									<th>Opis</th>
-									<th>Link do szczegółów</th>
-									<th>Link do usunięcia</th>
+									<th data-orderable="false">Link do szczegółów</th>
+									<th data-orderable="false">Link do usunięcia</th>
 								</tr>
 							</thead>
 

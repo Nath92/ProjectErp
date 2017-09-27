@@ -34,8 +34,8 @@
 									<th>Data dostarczenia</th>
 									<th>Data platnosci</th>
 									<th>Kwota</th>
-									<th>Link do szczegółów</th>
-									<th>Link do usunięcia</th>
+									<th data-orderable="false">Link do szczegółów</th>
+									<th data-orderable="false">Link do usunięcia</th>
 								</tr>
 							</thead>
 

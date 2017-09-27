@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -37,7 +39,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Project ERP!</span></a>
+              <a href="index.html" class="site_title"><img src="<c:url value="/resources/images/new_logo.jpg" />" alt="..." style="width:50px; height:50px;"><span>Project ERP!</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -66,6 +68,7 @@
                     <ul class="nav child_menu">
                       <li><a href="/ProjectErp/client/add">Dodawanie klienta</a></li>
                       <li><a href="/ProjectErp/basket/add">Dodawanie zamówień</a></li>
+                      <li><a href="/ProjectErp/product/add">Dodawanie produktu</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-table"></i> Tabele <span class="fa fa-chevron-down"></span></a>

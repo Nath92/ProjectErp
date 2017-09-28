@@ -1,4 +1,4 @@
-package pl.coderslab.validator;
+package pl.projecterp.validator;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

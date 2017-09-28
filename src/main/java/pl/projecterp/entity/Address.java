@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-import pl.coderslab.validator.Postalcode;
+import pl.projecterp.validator.Postalcode;
 
 @Entity
 @Table(name = "address")

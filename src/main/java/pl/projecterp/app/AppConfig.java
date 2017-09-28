@@ -25,6 +25,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 import pl.projecterp.converter.ProductConverter;
+import pl.projecterp.security.BCrypt;
 
 @Configuration
 @EnableWebMvc
@@ -33,6 +34,11 @@ import pl.projecterp.converter.ProductConverter;
 @EnableJpaRepositories(basePackages = "pl.projecterp.repository")
 public class AppConfig extends WebMvcConfigurerAdapter {
 
+	@Bean
+	public BCrypt bCrypt() {
+	    return new BCrypt();
+	}
+	
 	@Override
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
 		configurer.enable();

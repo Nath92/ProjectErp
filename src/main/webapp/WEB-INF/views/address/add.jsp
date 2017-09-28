@@ -30,15 +30,18 @@
 		<form:errors path="city" cssClass="error" />
 		<br>
 			
-			Ulica:<form:input path="street" />
+			Ulica:<form:input path="street" id="street" pattern="[A-Za-z]{3,74}"/>
 		<form:errors path="street" cssClass="error" />
 		<br>
 			
 			Numer domu:<form:input path="housenumber" />
 		<form:errors path="housenumber" cssClass="error" />
+		
 		<br>
 			
-			Numer mieszkania:<form:input path="localnumber" />
+			Numer mieszkania:<form:input path="localnumber" pattern="[0-9]{0,4}"/>
+			<form:errors path="localnumber" cssClass="error" />
+			
 		<br>
 		<input type="submit" value="Dodaj">
 	</form:form>

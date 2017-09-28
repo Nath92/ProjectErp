@@ -1,4 +1,4 @@
-package pl.coderslab.validator;
+package pl.projecterp.validator;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

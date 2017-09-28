@@ -1,10 +1,14 @@
 package pl.projecterp.app;
 
 
+import java.util.Collections;
+
 import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
+import javax.servlet.SessionCookieConfig;
+import javax.servlet.SessionTrackingMode;
 
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -14,6 +18,11 @@ import org.springframework.web.servlet.DispatcherServlet;
 public class AppInitializer implements WebApplicationInitializer {
 
 	public void onStartup(ServletContext container) throws ServletException {
+        container.setSessionTrackingModes(Collections.singleton(SessionTrackingMode.COOKIE));
+        SessionCookieConfig sessionCookieConfig=container.getSessionCookieConfig();
+        sessionCookieConfig.setHttpOnly(true);
+		
+		
 		AnnotationConfigWebApplicationContext ctx =
 				new AnnotationConfigWebApplicationContext();
 		

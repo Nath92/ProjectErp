@@ -23,6 +23,11 @@
 			</c:forEach>
 		</li>
 	</ul>
+	<button><a href="/ProjectErp/client/delete/${client.id}" 
+		style="text-decoration: none">Usuń</a>
+	</button>
+	
+	<br>
 	<button><a href="/ProjectErp/client" style="text-decoration: none">Wróć</a></button>
 </body>
 </html>

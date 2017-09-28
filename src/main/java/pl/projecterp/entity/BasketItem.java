@@ -23,6 +23,10 @@ public class BasketItem {
 	
 	@NotBlank
 	private String name;
+	
+	@NotNull
+	@Min(value=0)
+	private Integer standard;
 
 	@NotNull
 	@Min(value=0)
@@ -45,11 +49,12 @@ public class BasketItem {
 	public BasketItem() {
 	}
 
-	public BasketItem(Long id, String name, Integer quantity, Double weight, Double price, Long productId,
+	public BasketItem(Long id, String name, Integer standard, Integer quantity, Double weight, Double price, Long productId,
 			Basket basket) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.standard = standard;
 		this.quantity = quantity;
 		this.weight = weight;
 		this.price = price;
@@ -71,6 +76,14 @@ public class BasketItem {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public Integer getStandard() {
+		return standard;
+	}
+
+	public void setStandard(Integer standard) {
+		this.standard = standard;
 	}
 
 	public Integer getQuantity() {
@@ -109,10 +122,14 @@ public class BasketItem {
 		return basket;
 	}
 
-	public void setOrder(Basket basket) {
+	public void setBasket(Basket basket) {
 		this.basket = basket;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "BasketItem [id=" + id + ", name=" + name + ", standard=" + standard + ", quantity=" + quantity
+				+ ", weight=" + weight + ", price=" + price + "]";
+	}
 	
 }

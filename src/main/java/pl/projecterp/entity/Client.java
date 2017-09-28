@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -11,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
@@ -28,6 +30,8 @@ public class Client {
 	@NotBlank
 	private String name;
 	
+	@NotBlank
+	@Column(unique = true)
 	@NIP
 	private String nip;
 	
@@ -44,6 +48,9 @@ public class Client {
 	
 	@OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	List<Address> addresses = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+	List<Basket> baskets = new ArrayList<>();
 
 	public Client() {};
 	
@@ -56,6 +63,18 @@ public class Client {
 		this.email = email;
 		this.description = description;
 		this.addresses = addresses;
+	}
+	
+	public Client(String name, String nip, String phone, String email, String description,
+			List<Address> addresses, List<Basket> baskets) {
+		super();
+		this.name = name;
+		this.nip = nip;
+		this.phone = phone;
+		this.email = email;
+		this.description = description;
+		this.addresses = addresses;
+		this.baskets = baskets;
 	}
 	
 	public Long getId() {
@@ -121,10 +140,19 @@ public class Client {
 	public void setAddresses(List<Address> addresses) {
 		this.addresses = addresses;
 	}
-
+	
+	public List<Basket> getBaskets() {
+		return baskets;
+	}
+	
+	public void setBaskets(List<Basket> baskets) {
+		this.baskets = baskets;
+	}
+	
 	@Override
 	public String toString() {
 		return "name=" + name + ", nip=" + nip + ", phone=" + phone + ", email=" + email
 				+ ", description=" + description;
 	}
+
 }

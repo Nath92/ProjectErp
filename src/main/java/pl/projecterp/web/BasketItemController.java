@@ -1,8 +1,11 @@
 package pl.projecterp.web;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +17,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import pl.projecterp.entity.Basket;
 import pl.projecterp.entity.BasketItem;
 import pl.projecterp.entity.Product;
 import pl.projecterp.repository.BasketItemRepository;
@@ -40,12 +45,25 @@ public class BasketItemController {
 	}
 	
 	@PostMapping({"/basketItem/add", "/basketItem/add/{id}"})
-	public String processForm(@Valid @ModelAttribute BasketItem basketItem, BindingResult result){
+	public String processForm(@Valid @ModelAttribute BasketItem basketItem, BindingResult result,
+			HttpSession sess, Model model){
 		if(result.hasErrors()){
-			return "basketItem/add";
+			return "basket/add/" + ((Basket) sess.getAttribute("basket")).getClient().getId();
 		}
-		basketItemRepository.save(basketItem);
-		return "redirect:/basketItem";
+		//modifying list of products in basket (basketItems)
+		List<BasketItem> basketItems = (List<BasketItem>) sess.getAttribute("basketItems");
+		basketItems.add(basketItem);
+		sess.setAttribute("basketItems", basketItems);
+		
+		//modyfing number of available products to buy
+		Map<Long, Product> curProducts = (Map<Long, Product>) sess.getAttribute("curProducts");
+		curProducts.get(basketItem.getProductId()).setAvailability(
+				curProducts.get(basketItem.getProductId()).getAvailability()
+				-basketItem.getQuantity());
+		sess.setAttribute("curProducts", curProducts);
+		model.addAttribute("availableProducts", new ArrayList<Product>(curProducts.values()));
+
+		return "redirect:/basket/add/" + ((Basket) sess.getAttribute("basket")).getClient().getId();
 	}
 	
 	@RequestMapping("/basketItem")

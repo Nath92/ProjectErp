@@ -47,8 +47,8 @@
 									<th>Nr telefonu</th>
 									<th>Email</th>
 									<th>Opis</th>
-									<th data-orderable="false">Link do szczegółów</th>
-									<th data-orderable="false">Link do usunięcia</th>
+									<th data-orderable="false">Szczegóły</th>
+									<th data-orderable="false">Złóż zamowienie</th>
 								</tr>
 							</thead>
 
@@ -66,8 +66,8 @@
 													style="text-decoration: none">Szczegóły</a>
 											</button></td>
 										<td><button>
-												<a href="/ProjectErp/client/delete/${client.id}"
-													style="text-decoration: none">Usuń</a>
+												<a href="/ProjectErp/basket/add/${client.id}"
+													style="text-decoration: none">Nowe</a>
 											</button></td>
 									</tr>
 								</c:forEach>

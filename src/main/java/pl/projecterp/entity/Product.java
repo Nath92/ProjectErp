@@ -9,6 +9,7 @@ import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotBlank;
+import org.json.JSONObject;
 
 @Entity
 @Table(name = "product")
@@ -84,7 +85,23 @@ public class Product {
 	public void setCurrentPrice(Double currentPrice) {
 		this.currentPrice = currentPrice;
 	}
-
 	
+	public JSONObject toJSON() {
+		JSONObject jo = new JSONObject();
+		jo.put("id", id);
+		jo.put("name", name);
+		jo.put("standard", standard);
+		jo.put("availability", availability);
+		jo.put("weight", weight);
+		jo.put("currentPrice", currentPrice);
+		
+		return jo;
+	}
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", standard=" + standard + ", availability=" + availability
+				+ ", weight=" + weight + ", currentPrice=" + currentPrice + "]";
+	}
 	
 }

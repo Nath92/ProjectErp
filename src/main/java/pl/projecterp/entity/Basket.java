@@ -37,23 +37,25 @@ public class Basket {
 	@DecimalMin("0.01")
 	private Double totalPrice;
 	
-//	@ManyToOne
-//	private Client client;
+	@ManyToOne
+	private Client client;
 	
+//	@NotNull
 	@OneToMany(mappedBy = "basket", cascade = CascadeType.ALL)
 	List<BasketItem> items = new ArrayList<>();
 	
 	public Basket() {
 	}
 
-	public Basket(Long id, String createdDate, String shippingDate, String paymentDate, Double totalPrice, List<BasketItem> basketItem) {
+	public Basket(Long id, String createdDate, String shippingDate, String paymentDate, Double totalPrice, 
+			Client client, List<BasketItem> basketItem) {
 		super();
 		this.id = id;
 		this.createdDate = createdDate;
 		this.shippingDate = shippingDate;
 		this.paymentDate = paymentDate;
 		this.totalPrice = totalPrice;
-//		this.client = client;
+		this.client = client;
 		this.items = basketItem;
 	}
 
@@ -97,13 +99,13 @@ public class Basket {
 		this.totalPrice = totalPrice;
 	}
 
-//	public Client getClient() {
-//		return client;
-//	}
-//
-//	public void setClient(Client client) {
-//		this.client = client;
-//	}
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
 
 	public List<BasketItem> getOrderItem() {
 		return items;
@@ -111,5 +113,11 @@ public class Basket {
 
 	public void setOrderItem(List<BasketItem> basketItem) {
 		this.items = basketItem;
+	}
+
+	@Override
+	public String toString() {
+		return "Basket [id=" + id + ", createdDate=" + createdDate + ", shippingDate=" + shippingDate + ", paymentDate="
+				+ paymentDate + ", totalPrice=" + totalPrice + ", clientID=" + client.getId() + "]";
 	}
 }

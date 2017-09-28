@@ -51,7 +51,7 @@
               </div>
               <div class="profile_info">
                 <span>Witaj,</span>
-                <h2>Tomatoe Patryk</h2>
+                <h2>${account}</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -113,7 +113,8 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="<c:url value="/resources/images/img.jpg" />" alt="">Tomatoe Patryk
+                    <img src="<c:url value="/resources/images/img.jpg" />" alt=""> 
+                   ${account}
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">

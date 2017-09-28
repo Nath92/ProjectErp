@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -28,19 +29,24 @@ public class AccountController {
 	}
 
 	@RequestMapping("/")
-	public String hello(HttpSession sess, Model model) {
+	public String hello(HttpSession sess) {
 		if (sess.isNew()) {
-			model.addAttribute("account", new Account());
-			return "account/login";
+			return "redirect:account/login";
 		} else {
 			return "hello";
 		}
 	}
 
+	@GetMapping("/account/login")
+	public String showLoginForm(Model model, HttpSession sess) {
+		model.addAttribute("account", new Account());
+		return "account/login";
+	}
+
 	@PostMapping("/account/login")
 	public String processLoginForm(@Valid @ModelAttribute Account account, BindingResult result, HttpSession sess, HttpServletRequest request) {
-		if(BCrypt.checkpw(account.getPassword(), accountRepository.findByUsername(account.getUsername()).getPassword().toString())){
-			sess.setAttribute("account", account.getId());
+		if(accountRepository.findByUsername(account.getUsername()) != null && BCrypt.checkpw(account.getPassword(), accountRepository.findByUsername(account.getUsername()).getPassword().toString())){
+			sess.setAttribute("account", account.getUsername());
 			return "redirect:/";
 		}
 		request.setAttribute("errorInfo", "Nieprawidłowe dane logowania");
@@ -62,7 +68,7 @@ public class AccountController {
 		}
 		account.setPassword(BCrypt.hashpw(account.getPassword(), BCrypt.gensalt()));
 		accountRepository.save(account);
-		sess.setAttribute("account", account.getId());
+		sess.setAttribute("account", account.getUsername());
 		return "redirect:/account/login";
 	}
 }

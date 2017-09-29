@@ -30,6 +30,7 @@
 						<table id="datatable" class="table table-striped table-bordered">
 							<thead>
 								<tr>
+									<th>NIP klienta</th>
 									<th>Data utworzenia</th>
 									<th>Data dostarczenia</th>
 									<th>Data platnosci</th>
@@ -43,6 +44,7 @@
 							<tbody>
 								<c:forEach items="${baskets}" var="basket" varStatus="count">
 									<tr>
+										<td>${basket.client.nip}</td>
 										<td>${basket.createdDate}</td>
 										<td>${basket.shippingDate}</td>
 										<td>${basket.paymentDate}</td>

@@ -48,7 +48,7 @@ public class Basket {
 	}
 
 	public Basket(Long id, String createdDate, String shippingDate, String paymentDate, Double totalPrice, 
-			Client client, List<BasketItem> basketItem) {
+			Client client, List<BasketItem> items) {
 		super();
 		this.id = id;
 		this.createdDate = createdDate;
@@ -56,7 +56,7 @@ public class Basket {
 		this.paymentDate = paymentDate;
 		this.totalPrice = totalPrice;
 		this.client = client;
-		this.items = basketItem;
+		this.items = items;
 	}
 
 	public Long getId() {
@@ -107,12 +107,12 @@ public class Basket {
 		this.client = client;
 	}
 
-	public List<BasketItem> getOrderItem() {
+	public List<BasketItem> getItems() {
 		return items;
 	}
 
-	public void setOrderItem(List<BasketItem> basketItem) {
-		this.items = basketItem;
+	public void setItems(List<BasketItem> items) {
+		this.items = items;
 	}
 
 	@Override

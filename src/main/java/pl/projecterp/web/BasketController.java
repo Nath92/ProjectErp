@@ -6,8 +6,10 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
+import org.hibernate.Hibernate;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -142,7 +144,11 @@ public class BasketController {
 	
 	@RequestMapping("/basket/get/{id}")
 	public String get(@PathVariable Long id, Model model){
+		Basket basket = basketRepository.findById(id);
+		List<BasketItem> basketItems = basketItemRepository.findByBasketId(basket.getId());
+		
 		model.addAttribute("basket", basketRepository.findById(id));
+		model.addAttribute("basketItems", basketItems);
 		return "basket/details";
 	}
 	

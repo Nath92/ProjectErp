@@ -67,7 +67,6 @@
                   <li><a><i class="fa fa-edit"></i> Formularze <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="/ProjectErp/client/add">Dodawanie klienta</a></li>
-                      <li><a href="/ProjectErp/basket/add">Dodawanie zamówień</a></li>
                       <li><a href="/ProjectErp/product/add">Dodawanie produktu</a></li>
                     </ul>
                   </li>

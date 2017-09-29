@@ -32,43 +32,50 @@ public class AccountController {
 	public String hello(HttpSession sess) {
 		if (sess.isNew()) {
 			return "redirect:account/login";
-		} else {
-			return "hello";
+		} 
+		else if(sess.getAttribute("username") != null){
+			if(BCrypt.checkpw((String)sess.getAttribute("password"), accountRepository.findByUsername((String)sess.getAttribute("username")).getPassword().toString()));
+			return "client/client";
+		}
+		else{
+			return "redirect:account/login";
 		}
 	}
 
 	@GetMapping("/account/login")
-	public String showLoginForm(Model model, HttpSession sess) {
+	public String showLoginForm(Model model, HttpSession sess, HttpServletRequest request) {
 		model.addAttribute("account", new Account());
-		return "account/login";
+		return "account/account";
 	}
 
 	@PostMapping("/account/login")
 	public String processLoginForm(@Valid @ModelAttribute Account account, BindingResult result, HttpSession sess, HttpServletRequest request) {
 		if(accountRepository.findByUsername(account.getUsername()) != null && BCrypt.checkpw(account.getPassword(), accountRepository.findByUsername(account.getUsername()).getPassword().toString())){
-			sess.setAttribute("account", account.getUsername());
+			sess.setAttribute("username", account.getUsername());
+			sess.setAttribute("password", accountRepository.findByUsername(account.getUsername()).getPassword().toString());
 			return "redirect:/";
 		}
-		request.setAttribute("errorInfo", "Nieprawidłowe dane logowania");
-	return "/account/login";
+		request.setAttribute("loginError", "Nieprawidłowe dane logowania");
+	return "/account/account";
 	}
 	
 	@GetMapping("/account/register")
 	public String showRegisterForm(Model model) {
 		model.addAttribute("account", new Account());
-		return "account/register";
+		return "account/account";
 	}
 
 	@PostMapping("/account/register")
 	public String processRegisterForm(@Valid @ModelAttribute Account account, BindingResult result, HttpSession sess, HttpServletRequest request) {
 		Long registeredUser = accountRepository.countByUsername(account.getUsername());
 		if (registeredUser == 1) {
-			request.setAttribute("errorInfo", "Taki użytkownik już istnieje");
-			return "account/register";
+			request.setAttribute("registerError", "Taki użytkownik już istnieje");
+			return "account/account";
 		}
 		account.setPassword(BCrypt.hashpw(account.getPassword(), BCrypt.gensalt()));
 		accountRepository.save(account);
-		sess.setAttribute("account", account.getUsername());
+		sess.setAttribute("username", account.getUsername());
+		sess.setAttribute("password", account.getPassword());
 		return "redirect:/account/login";
 	}
 }

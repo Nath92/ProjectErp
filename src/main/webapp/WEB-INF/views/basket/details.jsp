@@ -39,12 +39,12 @@
                       <!-- info row -->
                       <div class="row invoice-info">
                         <div class="col-sm-4 invoice-col">
-                          To
+                          Dane klienta
                           <address>
-                                          <strong>${basket.client.name}</strong>
-                                          <br>${basket.client.nip}
-                                          <br>${basket.client.description}
-                                          <br>Phone: ${basket.client.phone}
+                                          <strong>Nazwa: ${basket.client.name}</strong>
+                                          <br>Nip: ${basket.client.nip}
+                                          <br>Opis: ${basket.client.description}
+                                          <br>Telefon: ${basket.client.phone}
                                           <br>Email: ${basket.client.email}
                                       </address>
                         </div>
@@ -154,7 +154,7 @@
                       <div class="row no-print">
                         <div class="col-xs-12">
                           <button class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i> Drukuj</button>
-                          <button class="btn btn-success pull-right"><a href="/ProjectErp/basket"><i class="fa fa-arrow-left"></i> Wróć</a></button>
+                          <button class="btn btn-success pull-right"><a href="/ProjectErp/basket" style="text-decoration: none; color: white;"><i class="fa fa-arrow-left"></i> Wróć</a></button>
                         </div>
                       </div>
                     </section>

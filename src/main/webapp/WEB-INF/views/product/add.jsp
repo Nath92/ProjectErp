@@ -35,38 +35,38 @@
                     <form:form method="post" modelAttribute="product" id="demo-form2" cssClass="form-horizontal form-label-left">
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nazwa <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nazwa <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <form:input path="name" required="true" cssClass="form-control col-md-7 col-xs-12"/>
+                          <form:input id="name" path="name" required="true" cssClass="form-control col-md-7 col-xs-12"/>
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Próba <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="standard">Próba <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <form:input path="standard" required="true" cssClass="form-control col-md-7 col-xs-12"/>
+                          <form:input id="standard" path="standard" required="true" cssClass="form-control col-md-7 col-xs-12"/>
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Ilosc <span class="required">*</span>
+                        <label for="availability" class="control-label col-md-3 col-sm-3 col-xs-12">Ilosc <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <form:input path="availability" required="true" cssClass="form-control col-md-7 col-xs-12"/>
+                          <form:input id="availability" path="availability" required="true" cssClass="form-control col-md-7 col-xs-12"/>
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Waga <span class="required">*</span>
+                        <label for="weight" class="control-label col-md-3 col-sm-3 col-xs-12">Waga <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <form:input path="weight" min="0.1" required="true" cssClass="form-control col-md-7 col-xs-12"/>
+                          <form:input id="weight" path="weight" min="0.1" required="true" cssClass="form-control col-md-7 col-xs-12"/>
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Cena za 1 gram <span class="required">*</span>
+                        <label for="currentPrice" class="control-label col-md-3 col-sm-3 col-xs-12">Cena za 1 gram <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <form:input path="currentPrice" min="0.1" required="true" cssClass="date-picker form-control col-md-7 col-xs-12"/>
+                          <form:input id="currentPrice" path="currentPrice" min="0.1" required="true" cssClass="date-picker form-control col-md-7 col-xs-12"/>
                         </div>
                       </div>
                       <div class="ln_solid"></div>

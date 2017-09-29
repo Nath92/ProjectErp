@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>ProjectERP</title>
+    <title>Volpi</title>
 
     <!-- Bootstrap -->
     <link href="<c:url value="/resources/vendors/bootstrap/dist/css/bootstrap.min.css" />" rel="stylesheet">
@@ -39,7 +39,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><img src="<c:url value="/resources/images/new_logo.jpg" />" alt="..." style="width:50px; height:50px;"><span>Project ERP!</span></a>
+              <a href="index.html" class="site_title"><img src="<c:url value="/resources/images/logo/chibicthulhuD.png" />" alt="..." style="width:50px; height:50px;"><span>Volpi</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -47,7 +47,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="<c:url value="/resources/images/img.jpg" />" alt="..." class="img-circle profile_img">
+                <img src="<c:url value="/resources/images/user.png" />" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Witaj,</span>
@@ -112,7 +112,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="<c:url value="/resources/images/img.jpg" />" alt=""> 
+                    <img src="<c:url value="/resources/images/user.png" />" alt=""> 
                    ${account}
                     <span class=" fa fa-angle-down"></span>
                   </a>

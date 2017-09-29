@@ -69,13 +69,16 @@
 							</p>
 
 							<div class="clearfix"></div>
-							<br />
+							<br>
 
 							<div>
-								<h1>
-									<i class="fa fa-paw"></i> ProjectERP!
+								<div class="profile_pic">
+									<img style="size: 50%; margin-top: -30px; margin-left: 70%;"
+									src="<c:url value="/resources/images/logo/chibicthulhuD.png" />" alt="..." class="img-circle profile_img">
+								</div>
+								<h1 style="width: 300px;">
+									Volpi
 								</h1>
-								<p></p>
 							</div>
 						</div>
 					</form:form>
@@ -113,10 +116,13 @@
 							<br />
 
 							<div>
-								<h1>
-									<i class="fa fa-paw"></i> ProjectERP!
+								<div class="profile_pic">
+									<img style="size: 50%; margin-top: -30px; margin-left: 70%;"
+									src="<c:url value="/resources/images/logo/chibicthulhuD.png" />" alt="..." class="img-circle profile_img">
+								</div>
+								<h1 style="width: 300px;">
+									Volpi
 								</h1>
-								<p></p>
 							</div>
 						</div>
 					</form:form>

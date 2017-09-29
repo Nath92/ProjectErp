@@ -12,6 +12,7 @@ import pl.projecterp.entity.Client;
 public interface ClientRepository extends JpaRepository<Client, Long>	{	
 	
 	List<Client> findByName(String name);
+	Long countByNip(String Nip);
 	
 	Client findById(Long id);
 	

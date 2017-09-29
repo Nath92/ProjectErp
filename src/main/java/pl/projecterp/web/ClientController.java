@@ -1,8 +1,5 @@
 package pl.projecterp.web;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -16,11 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import pl.projecterp.entity.Address;
 import pl.projecterp.entity.Client;
-import pl.projecterp.repository.AddressRepository;
 import pl.projecterp.repository.ClientRepository;
 
 @Controller
@@ -42,14 +35,19 @@ public class ClientController {
 	}
 	
 	@PostMapping({ "/client/add", "/client/add/{id}"})
-	public String processForm(@Valid @ModelAttribute Client client, BindingResult result, HttpSession sess) {
+	public String processForm(@Valid @ModelAttribute Client client, BindingResult result, HttpSession sess, HttpServletRequest request) {
 		if (result.hasErrors()) {
 			return "client/add";
 		}
+		else if(clientRepository.countByNip(client.getNip()) == 1){
+			request.setAttribute("duplicatedNip", "duplicatedNip");
+			return "client/add";
+		}
+		else{
 		client.setActive(true);
 		sess.setAttribute("client", client);
 		clientRepository.save(client);
-		return "redirect:/address/add";
+		return "redirect:/address/add";}
 	}
 	
 	@GetMapping("/client")

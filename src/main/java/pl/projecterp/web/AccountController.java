@@ -29,13 +29,14 @@ public class AccountController {
 	}
 
 	@RequestMapping("/")
-	public String hello(HttpSession sess) {
+	public String hello(HttpSession sess, HttpServletRequest request) {
 		if (sess.isNew()) {
 			return "redirect:account/login";
 		} 
 		else if(sess.getAttribute("username") != null){
 			if(BCrypt.checkpw((String)sess.getAttribute("password"), accountRepository.findByUsername((String)sess.getAttribute("username")).getPassword().toString()));
-			return "client/client";
+			request.setAttribute("account", sess.getAttribute("username").toString());
+			return "hello";
 		}
 		else{
 			return "redirect:account/login";

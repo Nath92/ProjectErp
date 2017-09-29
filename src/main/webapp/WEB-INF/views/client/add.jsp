@@ -47,7 +47,7 @@
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <form:input id="nip" path="nip" required="true" cssClass="form-control col-md-7 col-xs-12"/>
-                          <form:errors path="nip" cssClass="error" />
+                          <form:errors path="nip" cssClass="error" />${duplicatedNip}
                         </div>
                       </div>
                       <div class="form-group">

@@ -40,7 +40,7 @@ public class ClientController {
 			return "client/add";
 		}
 		else if(clientRepository.countByNip(client.getNip()) == 1){
-			request.setAttribute("duplicatedNip", "duplicatedNip");
+			request.setAttribute("duplicatedNip", "Istnieje już taki numer NIP w bazie");
 			return "client/add";
 		}
 		else{
